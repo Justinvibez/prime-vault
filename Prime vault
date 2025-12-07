@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Prime Vault – Login</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-body">
+
+    <div class="login-box">
+        <h1 class="title">PRIME VAULT</h1>
+        <p class="tagline">Neon Lifestyle Simulator</p>
+
+        <input id="username" class="input" type="text" placeholder="Username">
+        <button onclick="login()" class="btn">Enter Vault</button>
+
+        <p class="creator-hint">Creator Login: Justinvibez001</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Prime Vault – Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dash-body">
+
+    <div class="nav">
+        <h2 class="nav-title">Prime Vault</h2>
+        <span id="userDisplay"></span>
+    </div>
+
+    <div class="card-grid">
+
+        <div class="card">
+            <h3>Vault Credits</h3>
+            <p id="credits" class="value">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Luxury Score</h3>
+            <p id="luxury" class="value">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Status Level</h3>
+            <p id="status" class="value">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Elite Rank</h3>
+            <p id="rank" class="value">0</p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Prime Vault – Creator Panel</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dash-body">
+
+    <div class="nav">
+        <h2 class="nav-title">Creator Panel</h2>
+        <span>Logged in: Justinvibez001</span>
+    </div>
+
+    <div class="creator-box">
+
+        <h2>Update Simulation Values</h2>
+
+        <input id="c_credits" class="input" type="number" placeholder="Vault Credits">
+        <input id="c_luxury" class="input" type="number" placeholder="Luxury Score">
+        <input id="c_status" class="input" type="number" placeholder="Status Level">
+        <input id="c_rank" class="input" type="number" placeholder="Elite Rank">
+
+        <button onclick="saveData()" class="btn">Save Changes</button>
+        <p class="note">Changes appear instantly on user dashboard</p>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>body {
+    margin: 0;
+    font-family: 'Arial';
+    background: #04040f;
+    color: white;
+}
+
+.login-body, .dash-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.title {
+    font-size: 40px;
+    text-align: center;
+    color: cyan;
+    text-shadow: 0 0 15px cyan;
+}
+
+.tagline {
+    text-align: center;
+    opacity: 0.7;
+}
+
+.login-box {
+    width: 300px;
+    padding: 20px;
+    background: rgba(0,0,10,0.7);
+    box-shadow: 0 0 20px cyan;
+    border-radius: 10px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    background: black;
+    border: 1px solid cyan;
+    color: white;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background: cyan;
+    border: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nav {
+    position: absolute;
+    top: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    color: cyan;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 180px);
+    gap: 20px;
+}
+
+.card {
+    background: rgba(0,0,20,0.7);
+    padding: 20px;
+    text-align: center;
+    border: 1px solid cyan;
+    border-radius: 8px;
+    box-shadow: 0 0 15px cyan;
+}
+
+.value {
+    font-size: 30px;
+    color: cyan;
+    text-shadow: 0 0 10px cyan;
+}
+
+.creator-box {
+    background: rgba(0,0,20,0.7);
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 20px cyan;
+    border-radius: 10px;
+}function login() {
+    let user = document.getElementById("username").value;
+
+    if (user === "Justinvibez001") {
+        window.location.href = "creator.html";
+    } else {
+        localStorage.setItem("pv_user", user);
+        window.location.href = "dashboard.html";
+    }
+}
+
+// LOAD dashboard values
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("userDisplay")) {
+        document.getElementById("userDisplay").innerText = localStorage.getItem("pv_user");
+
+        document.getElementById("credits").innerText = localStorage.getItem("pv_credits") || 0;
+        document.getElementById("luxury").innerText = localStorage.getItem("pv_luxury") || 0;
+        document.getElementById("status").innerText = localStorage.getItem("pv_status") || 0;
+        document.getElementById("rank").innerText = localStorage.getItem("pv_rank") || 0;
+    }
+});
+
+// SAVE from Creator Panel
+function saveData() {
+    localStorage.setItem("pv_credits", document.getElementById("c_credits").value);
+    localStorage.setItem("pv_luxury", document.getElementById("c_luxury").value);
+    localStorage.setItem("pv_status", document.getElementById("c_status").value);
+    localStorage.setItem("pv_rank", document.getElementById("c_rank").value);
+
+    alert("Saved! Dashboard updated.");
+}
