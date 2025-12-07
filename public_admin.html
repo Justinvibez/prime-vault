@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Prime Vault - Admin</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Prime Vault (Demo) — Admin</h1>
+
+    <section id="admin-auth">
+      <h2>Admin Login</h2>
+      <input id="admin-email" placeholder="Admin email" />
+      <input id="admin-password" placeholder="Admin password" type="password" />
+      <button id="btn-admin-login">Login</button>
+    </section>
+
+    <section id="admin-section" style="display:none;">
+      <h2>Admin Actions</h2>
+
+      <h3>Deposit to account</h3>
+      <input id="dep-account" placeholder="Account number" />
+      <input id="dep-amount" placeholder="Amount (e.g. 100.00)" />
+      <button id="btn-deposit">Deposit</button>
+
+      <h3>Authorize / Unauthorize account</h3>
+      <input id="auth-account" placeholder="Account number" />
+      <select id="auth-action">
+        <option value="true">Authorize</option>
+        <option value="false">Unauthorize</option>
+      </select>
+      <button id="btn-authorize">Apply</button>
+
+      <h3>Support messages (latest)</h3>
+      <ul id="support-list"></ul>
+
+      <button id="btn-admin-logout">Logout</button>
+    </section>
+
+    <div id="admin-messages"></div>
+  </div>
+
+  <script src="/admin.js"></script>
+</body>
+</html>

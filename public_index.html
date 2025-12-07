@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Prime Vault - Demo Customer</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Prime Vault (Demo) — Customer</h1>
+
+    <section id="auth-section">
+      <h2>Register</h2>
+      <input id="reg-name" placeholder="Name" />
+      <input id="reg-email" placeholder="Email" />
+      <input id="reg-password" placeholder="Password" type="password" />
+      <button id="btn-register">Register</button>
+
+      <h2>Login</h2>
+      <input id="login-email" placeholder="Email" />
+      <input id="login-password" placeholder="Password" type="password" />
+      <button id="btn-login">Login</button>
+    </section>
+
+    <section id="account-section" style="display:none;">
+      <h2>Your Account</h2>
+      <div id="account-info"></div>
+      <h3>Transfer (requires authorized account)</h3>
+      <input id="transfer-to" placeholder="Recipient account number" />
+      <input id="transfer-amount" placeholder="Amount (e.g. 12.50)" />
+      <input id="transfer-note" placeholder="Note (optional)" />
+      <button id="btn-transfer">Send</button>
+
+      <h3>Support</h3>
+      <input id="support-subject" placeholder="Subject" />
+      <textarea id="support-message" placeholder="Message"></textarea>
+      <button id="btn-support">Send to Admin</button>
+
+      <h3>Transactions</h3>
+      <ul id="transactions"></ul>
+
+      <button id="btn-logout">Logout</button>
+    </section>
+
+    <div id="messages"></div>
+    <p class="muted">If your account isn't authorized for transfers, contact the admin via the Support form or visit the admin page.</p>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

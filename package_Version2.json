@@ -1,0 +1,20 @@
+{
+  "name": "prime-vault-demo",
+  "version": "0.1.0",
+  "description": "Demo fake-banking app for prime-vault (for testing / demo only). Not for production.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "migrate": "node db.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "sqlite3": "^5.1.6",
+    "uuid": "^9.0.0"
+  }
+}
